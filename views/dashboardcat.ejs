@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogging App</title>
+    <link rel="stylesheet" href="../stylesheets/common.css">
+    <link rel="stylesheet" href="../stylesheets/userforms.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,600,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="topnav">
+    <a id="homeNav" class="active" href="/dashboard"><i class="fas fa-blog"></i> Blogging Application</a>
+    <a href="/users/newblog">New Post</a>
+    <a id="signinLink" href="/logout">Log out</a>
+  </div>
+
+  <% if (blogs.length == 0) { %>
+    <h1 id="noBlogH1">Sorry!! No Blogs Found!!</h1>
+  <% } else { %> 
+    <div class="container">
+      <% blogs.forEach(function(blog){ %>
+        <div class="blogDiv">
+          <h2 class="blogDetails"><%= blog.title %></h2>
+          <img class="blogImages" src="<%= blog.imgURL %>" alt="blogImage"><br>
+          <div class="blogDetails">
+              <span id="author-span">By <%= blog.author %> on <%= blog.dateofPublish %></span>
+            <p class="blogText"><%= blog.blogText.substring(0, 100) %>...</p>
+            <!-- <a class="readMore-btn" href="/blog/<%= blog.id %> ">Read More</a> -->
+            <button class="readMore-btn" href="/blog/<%= blog.id %> ">Read More</button>
+          </div>
+        </div>
+        <hr>
+      <% }); %> 
+    </div>
+  <% } %> 
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="../scripts/dashboard.js"></script>
+
+<%- include("partials/footer") %>

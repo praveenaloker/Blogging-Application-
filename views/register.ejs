@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+
+<div class="topnav">
+    <a id="homeNav" class="active" href="/"><i class="fas fa-blog"></i> Blogging Application</a>
+    <a href="/users/newblog">New Post</a>
+    <a id="signinLink" href="/users/login">Sign In</a>
+</div>
+
+<div class="formDivLr">
+    <form class="lrform" action="/users/register" method="POST">
+        <div class="container1">
+            <h1>Sign Up</h1>
+
+            <label for="inputName"><strong>Name</strong></label>
+                <input id="inputName" type="text" name="name" placeholder="Enter Name" required>
+
+            <label for="inputEmail"><strong>Email</strong></label>
+                <input id="inputEmail" type="email" name="email"
+                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+                placeholder="Enter Email" required>
+
+            <label for="inputPhone"><strong>Phone</strong></label>
+                <input id="inputPhone" type="text" name="phone" placeholder="Enter Phone" required>
+
+            <label for="inputPassword"><strong>Password</strong></label>
+                <input id="inputPassword" type="password" name="password" placeholder="Enter Password" required>
+
+            <label for="inputPassword"><strong>Repeat Password</strong></label>
+                <input id="inputPassword" type="password" name="password2" placeholder="Confirm Password" required>
+
+            <button class="lrform-btn" type="submit">Sign Up</button>             
+        </div>
+        <div class="container1">
+            <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
+            <span class="lowerText">Already have an account? <a href="/users/login">Sign In.</a></span>
+        </div>
+    </form>    
+</div>
+
+<%- include("partials/footer") %>

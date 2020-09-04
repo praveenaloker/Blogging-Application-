@@ -1,0 +1,55 @@
+<%- include("partials/header") %>
+
+<div class="topnav">
+  <a id="homeNav" class="active" href="/dashboard"><i class="fas fa-blog"></i> Blogging Application</a>
+  <a href="/users/newblog">New Post</a>
+  <a id="signinLink" href="/logout">Log out</a>
+</div>
+
+<div class="formDiv">
+  <form action="/users/newblog" method="POST" enctype="multipart/form-data">
+    <div class="container1">
+
+      <h1>New Blog</h1>
+      <label for="inputTitle"><strong>Title*</strong></label>
+      <input id="inputTitle" type="text" name="title" placeholder="Title"><br></br>
+
+      <!-- <label for="inputImg"><strong>Image URL</strong></label>
+      <input id="inputImg" type="text" name="img" placeholder="Image Url"> -->
+
+      <label for="inputImg"><strong>Upload Image:</strong></label>
+      <input id="inputImg" type="file" name="img"/>
+      <br /><br />
+
+      <label for="inputText"><strong>Text*</strong></label>
+      <textarea id="inputText" name="text" rows="10"></textarea>
+
+      <button class="lrform-btn" type="submit">Post</button>
+    </div>
+  </form>
+</div>
+<!-- <form action="/users/file_upload" method="POST" enctype="multipart/form-data">
+  <input type="file" name="file" size="50" />
+  <br />
+  <input type="submit" value="Upload File" />
+</form> -->
+<!-- <div class="container">
+  <h1>File Upload</h1>
+  <%= typeof msg != 'undefined' ? msg : '' %>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="file-field input-field">
+      <div class="btn grey">
+        <span>File</span>
+        <input name="profile" type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+  <br>
+  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+</div> -->
+
+<%- include("partials/footer") %>

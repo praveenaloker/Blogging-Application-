@@ -1,0 +1,47 @@
+<%- include("partials/header") %>
+
+<div class="topnav">
+    <a id="homeNav" class="active" href="/"><i class="fas fa-blog"></i> Blogging Application</a>
+    <a href="/users/newblog">New Post</a>
+    <a id="signupLink" href="/users/register">New Registration</a>
+    <a id="signinLink" href="/users/login">Sign In</a>
+    
+</div>
+
+<h3 id="quotes"><%= blogQuotes %><br></h3>
+
+<!-- <div class="regisbtnDiv">
+    Already have an account? <a href="/users/login">Sign In.</a>
+</div> -->
+<!-- <br><hr><br> -->
+    <!-- <div class="regisbtnDiv">
+        <a class="registerBtn" href="/users/register">New Registration</a>
+    </div> -->
+<!-- </div> -->
+
+  <!-- Blogs -->
+  <% if (blogs.length == 0) { %>
+    <h1 id="noBlogH1">Sorry!! No Blogs Found!!</h1>
+  <% } else { %>  
+    <div class="container">
+      <% blogs.forEach(function(blog){ %>
+        <div class="blogDiv">
+          <h2 class="blogDetails"><%= blog.title %></h2>
+          <img class="blogImages" src="<%= blog.imgURL %>" style="width:40%;margin:5px auto;margin-left:10%;" alt="blogImage"><br>
+          <div class="blogDetails">
+            <span id="author-span">By <%= blog.author %> on <%= blog.dateofPublish %></span>
+            <p class="blogText"><%= blog.blogText.substring(0, 100) %>...</p>
+            <!-- <p><%= blog.blogText %></p> -->
+            <a class="readMore-btn" href="/blog/<%= blog.id %>">Read More</a>
+          </div>
+        </div>
+        <hr>
+      <% }); %> 
+    </div>
+  <% } %> 
+
+  <!-- JS Scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="scripts/dashboard.js"></script>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,29 @@
+<%- include("partials/header") %>
+
+<div class="topnav">
+  <a id="homeNav" class="active" href="/dashboard"><i class="fas fa-blog"></i> Blogging Application</a>
+  <a href="/users/newblog">New Post</a>
+  <a id="signinLink" href="/logout">Log out</a>
+</div>
+
+<div class="formDiv">
+  <form action="/blogs/<%= blog[0].id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <div class="container1">
+      <h1>Edit Blog: <%= blog[0].title %></h1>
+
+      <label for="inputTitle"><strong>Title*</strong></label>
+      <input id="inputTitle" type="text" name="title" value="<%= blog[0].title %> "><br></br>
+
+      <label for="inputImg"><strong>Upload Image:</strong></label>
+      <input id="inputImg" type="file" name="img" value="<%= blog[0].imgURL %>" />
+      <p><%= blog[0].imgURL %></p><br /><br />
+
+      <label for="inputText"><strong>Text*</strong></label>
+      <textarea id="inputText" name="body" rows="10"><%= blog[0].blogText %></textarea>
+
+      <button class="lrform-btn" type="submit">Post</button>
+    </div>
+  </form>
+</div>
+
+<%- include("partials/footer") %>
